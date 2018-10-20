@@ -6,6 +6,7 @@ public class CubeGenerator : MonoBehaviour {
 
     // キューブのPrefab
     public GameObject cubePrefab;
+    
 
     // 時間計測用の変数
     private float delta = 0;
@@ -14,12 +15,12 @@ public class CubeGenerator : MonoBehaviour {
     private float span = 1.0f;
 
     // キューブの生成位置：X座標
-    private float genPosX = 12;
+    private float genPosX = 12.3f;
 
     // キューブの生成位置オフセット
     private float offsetY = 0.3f;
     // キューブの縦方向の間隔
-    private float spaceY = 6.9f;
+    private float spaceY = 4.8f;
 
     // キューブの生成位置オフセット
     private float offsetX = 0.5f;

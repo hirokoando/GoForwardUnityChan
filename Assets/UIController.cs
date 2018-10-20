@@ -14,13 +14,17 @@ public class UIController : MonoBehaviour
     private GameObject runLengthText;
 
     // 走った距離
-    private float len = 0;
+    public float len = 0;
 
     // 走る速度
     private float speed = 0.03f;
 
     // ゲームオーバの判定
-    private bool isGameOver = false;
+    public bool isGameOver = false;
+    
+    //coin
+    private GameObject cointext;
+    private int totalpoint;
 
 
     // Use this for initialization
@@ -29,6 +33,13 @@ public class UIController : MonoBehaviour
         // シーンビューからオブジェクトの実体を検索する
         this.gameOverText = GameObject.Find("GameOver");
         this.runLengthText = GameObject.Find("RunLength");
+
+
+        // coinシーンビューからオブジェクトの実体を検索する
+        this.cointext = GameObject.Find("CoinText");
+
+        this.totalpoint = 0;
+        this.cointext.GetComponent<Text>().text = "Coin: " + totalpoint.ToString();
     }
 
     // Update is called once per frame
@@ -43,6 +54,9 @@ public class UIController : MonoBehaviour
             this.runLengthText.GetComponent<Text>().text = "Distance:  " + len.ToString("F2") + "m";
         }
 
+
+        this.cointext.GetComponent<Text>().text = " : " + totalpoint.ToString();
+
         // ゲームオーバになった場合
         if (this.isGameOver == true)
         {
@@ -50,7 +64,7 @@ public class UIController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 //GameSceneを読み込む（追加）
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene("GameScene2");
             }
 
         }
@@ -63,7 +77,16 @@ public class UIController : MonoBehaviour
         this.isGameOver = true;
     }
 
+    public void CoinSum()
+    {
+        this.totalpoint += 10;
+    }
 
-  
+    public void BigCoinSum()
+    {
+        this.totalpoint += 200;
+    }
+
+
 
 }
